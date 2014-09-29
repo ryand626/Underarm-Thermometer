@@ -1,0 +1,473 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		94A3CA2119D934A300A77780 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3CA2019D934A300A77780 /* Foundation.framework */; };
+		94A3CA2319D934A300A77780 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3CA2219D934A300A77780 /* CoreGraphics.framework */; };
+		94A3CA2519D934A300A77780 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3CA2419D934A300A77780 /* UIKit.framework */; };
+		94A3CA2B19D934A300A77780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A3CA2919D934A300A77780 /* InfoPlist.strings */; };
+		94A3CA2D19D934A300A77780 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3CA2C19D934A300A77780 /* main.m */; };
+		94A3CA3119D934A300A77780 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3CA3019D934A300A77780 /* AppDelegate.m */; };
+		94A3CA3419D934A300A77780 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 94A3CA3219D934A300A77780 /* Main.storyboard */; };
+		94A3CA3719D934A300A77780 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3CA3619D934A300A77780 /* ViewController.m */; };
+		94A3CA3919D934A300A77780 /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 94A3CA3819D934A300A77780 /* Images.xcassets */; };
+		94A3CA4019D934A300A77780 /* XCTest.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3CA3F19D934A300A77780 /* XCTest.framework */; };
+		94A3CA4119D934A300A77780 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3CA2019D934A300A77780 /* Foundation.framework */; };
+		94A3CA4219D934A400A77780 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94A3CA2419D934A300A77780 /* UIKit.framework */; };
+		94A3CA4A19D934A400A77780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A3CA4819D934A400A77780 /* InfoPlist.strings */; };
+		94A3CA4C19D934A400A77780 /* Underarm_ThermometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3CA4B19D934A400A77780 /* Underarm_ThermometerTests.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		94A3CA4319D934A400A77780 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 94A3CA1519D934A300A77780 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 94A3CA1C19D934A300A77780;
+			remoteInfo = "Underarm Thermometer";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		94A3CA1D19D934A300A77780 /* Underarm Thermometer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Underarm Thermometer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A3CA2019D934A300A77780 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		94A3CA2219D934A300A77780 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		94A3CA2419D934A300A77780 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		94A3CA2819D934A300A77780 /* Underarm Thermometer-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Underarm Thermometer-Info.plist"; sourceTree = "<group>"; };
+		94A3CA2A19D934A300A77780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94A3CA2C19D934A300A77780 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		94A3CA2E19D934A300A77780 /* Underarm Thermometer-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "Underarm Thermometer-Prefix.pch"; sourceTree = "<group>"; };
+		94A3CA2F19D934A300A77780 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		94A3CA3019D934A300A77780 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		94A3CA3319D934A300A77780 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		94A3CA3519D934A300A77780 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		94A3CA3619D934A300A77780 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		94A3CA3819D934A300A77780 /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Images.xcassets; sourceTree = "<group>"; };
+		94A3CA3E19D934A300A77780 /* Underarm ThermometerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Underarm ThermometerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		94A3CA3F19D934A300A77780 /* XCTest.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = XCTest.framework; path = Library/Frameworks/XCTest.framework; sourceTree = DEVELOPER_DIR; };
+		94A3CA4719D934A400A77780 /* Underarm ThermometerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Underarm ThermometerTests-Info.plist"; sourceTree = "<group>"; };
+		94A3CA4919D934A400A77780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		94A3CA4B19D934A400A77780 /* Underarm_ThermometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Underarm_ThermometerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		94A3CA1A19D934A300A77780 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A3CA2319D934A300A77780 /* CoreGraphics.framework in Frameworks */,
+				94A3CA2519D934A300A77780 /* UIKit.framework in Frameworks */,
+				94A3CA2119D934A300A77780 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94A3CA3B19D934A300A77780 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A3CA4019D934A300A77780 /* XCTest.framework in Frameworks */,
+				94A3CA4219D934A400A77780 /* UIKit.framework in Frameworks */,
+				94A3CA4119D934A300A77780 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		94A3CA1419D934A300A77780 = {
+			isa = PBXGroup;
+			children = (
+				94A3CA2619D934A300A77780 /* Underarm Thermometer */,
+				94A3CA4519D934A400A77780 /* Underarm ThermometerTests */,
+				94A3CA1F19D934A300A77780 /* Frameworks */,
+				94A3CA1E19D934A300A77780 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		94A3CA1E19D934A300A77780 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				94A3CA1D19D934A300A77780 /* Underarm Thermometer.app */,
+				94A3CA3E19D934A300A77780 /* Underarm ThermometerTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		94A3CA1F19D934A300A77780 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				94A3CA2019D934A300A77780 /* Foundation.framework */,
+				94A3CA2219D934A300A77780 /* CoreGraphics.framework */,
+				94A3CA2419D934A300A77780 /* UIKit.framework */,
+				94A3CA3F19D934A300A77780 /* XCTest.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		94A3CA2619D934A300A77780 /* Underarm Thermometer */ = {
+			isa = PBXGroup;
+			children = (
+				94A3CA2F19D934A300A77780 /* AppDelegate.h */,
+				94A3CA3019D934A300A77780 /* AppDelegate.m */,
+				94A3CA3219D934A300A77780 /* Main.storyboard */,
+				94A3CA3519D934A300A77780 /* ViewController.h */,
+				94A3CA3619D934A300A77780 /* ViewController.m */,
+				94A3CA3819D934A300A77780 /* Images.xcassets */,
+				94A3CA2719D934A300A77780 /* Supporting Files */,
+			);
+			path = "Underarm Thermometer";
+			sourceTree = "<group>";
+		};
+		94A3CA2719D934A300A77780 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94A3CA2819D934A300A77780 /* Underarm Thermometer-Info.plist */,
+				94A3CA2919D934A300A77780 /* InfoPlist.strings */,
+				94A3CA2C19D934A300A77780 /* main.m */,
+				94A3CA2E19D934A300A77780 /* Underarm Thermometer-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		94A3CA4519D934A400A77780 /* Underarm ThermometerTests */ = {
+			isa = PBXGroup;
+			children = (
+				94A3CA4B19D934A400A77780 /* Underarm_ThermometerTests.m */,
+				94A3CA4619D934A400A77780 /* Supporting Files */,
+			);
+			path = "Underarm ThermometerTests";
+			sourceTree = "<group>";
+		};
+		94A3CA4619D934A400A77780 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				94A3CA4719D934A400A77780 /* Underarm ThermometerTests-Info.plist */,
+				94A3CA4819D934A400A77780 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		94A3CA1C19D934A300A77780 /* Underarm Thermometer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94A3CA4F19D934A400A77780 /* Build configuration list for PBXNativeTarget "Underarm Thermometer" */;
+			buildPhases = (
+				94A3CA1919D934A300A77780 /* Sources */,
+				94A3CA1A19D934A300A77780 /* Frameworks */,
+				94A3CA1B19D934A300A77780 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Underarm Thermometer";
+			productName = "Underarm Thermometer";
+			productReference = 94A3CA1D19D934A300A77780 /* Underarm Thermometer.app */;
+			productType = "com.apple.product-type.application";
+		};
+		94A3CA3D19D934A300A77780 /* Underarm ThermometerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 94A3CA5219D934A400A77780 /* Build configuration list for PBXNativeTarget "Underarm ThermometerTests" */;
+			buildPhases = (
+				94A3CA3A19D934A300A77780 /* Sources */,
+				94A3CA3B19D934A300A77780 /* Frameworks */,
+				94A3CA3C19D934A300A77780 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				94A3CA4419D934A400A77780 /* PBXTargetDependency */,
+			);
+			name = "Underarm ThermometerTests";
+			productName = "Underarm ThermometerTests";
+			productReference = 94A3CA3E19D934A300A77780 /* Underarm ThermometerTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		94A3CA1519D934A300A77780 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0510;
+				ORGANIZATIONNAME = team3;
+				TargetAttributes = {
+					94A3CA3D19D934A300A77780 = {
+						TestTargetID = 94A3CA1C19D934A300A77780;
+					};
+				};
+			};
+			buildConfigurationList = 94A3CA1819D934A300A77780 /* Build configuration list for PBXProject "Underarm Thermometer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 94A3CA1419D934A300A77780;
+			productRefGroup = 94A3CA1E19D934A300A77780 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				94A3CA1C19D934A300A77780 /* Underarm Thermometer */,
+				94A3CA3D19D934A300A77780 /* Underarm ThermometerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		94A3CA1B19D934A300A77780 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A3CA3919D934A300A77780 /* Images.xcassets in Resources */,
+				94A3CA2B19D934A300A77780 /* InfoPlist.strings in Resources */,
+				94A3CA3419D934A300A77780 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94A3CA3C19D934A300A77780 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A3CA4A19D934A400A77780 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		94A3CA1919D934A300A77780 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A3CA3719D934A300A77780 /* ViewController.m in Sources */,
+				94A3CA3119D934A300A77780 /* AppDelegate.m in Sources */,
+				94A3CA2D19D934A300A77780 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		94A3CA3A19D934A300A77780 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				94A3CA4C19D934A400A77780 /* Underarm_ThermometerTests.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		94A3CA4419D934A400A77780 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 94A3CA1C19D934A300A77780 /* Underarm Thermometer */;
+			targetProxy = 94A3CA4319D934A400A77780 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		94A3CA2919D934A300A77780 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94A3CA2A19D934A300A77780 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		94A3CA3219D934A300A77780 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94A3CA3319D934A300A77780 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		94A3CA4819D934A400A77780 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				94A3CA4919D934A400A77780 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		94A3CA4D19D934A400A77780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+			};
+			name = Debug;
+		};
+		94A3CA4E19D934A400A77780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				ENABLE_NS_ASSERTIONS = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.1;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = 2;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		94A3CA5019D934A400A77780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underarm Thermometer/Underarm Thermometer-Prefix.pch";
+				INFOPLIST_FILE = "Underarm Thermometer/Underarm Thermometer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		94A3CA5119D934A400A77780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = LaunchImage;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underarm Thermometer/Underarm Thermometer-Prefix.pch";
+				INFOPLIST_FILE = "Underarm Thermometer/Underarm Thermometer-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+		94A3CA5319D934A400A77780 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Underarm Thermometer.app/Underarm Thermometer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underarm Thermometer/Underarm Thermometer-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				INFOPLIST_FILE = "Underarm ThermometerTests/Underarm ThermometerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Debug;
+		};
+		94A3CA5419D934A400A77780 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(BUILT_PRODUCTS_DIR)/Underarm Thermometer.app/Underarm Thermometer";
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(inherited)",
+					"$(DEVELOPER_FRAMEWORKS_DIR)",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "Underarm Thermometer/Underarm Thermometer-Prefix.pch";
+				INFOPLIST_FILE = "Underarm ThermometerTests/Underarm ThermometerTests-Info.plist";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_HOST = "$(BUNDLE_LOADER)";
+				WRAPPER_EXTENSION = xctest;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		94A3CA1819D934A300A77780 /* Build configuration list for PBXProject "Underarm Thermometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A3CA4D19D934A400A77780 /* Debug */,
+				94A3CA4E19D934A400A77780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		94A3CA4F19D934A400A77780 /* Build configuration list for PBXNativeTarget "Underarm Thermometer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A3CA5019D934A400A77780 /* Debug */,
+				94A3CA5119D934A400A77780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+		94A3CA5219D934A400A77780 /* Build configuration list for PBXNativeTarget "Underarm ThermometerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				94A3CA5319D934A400A77780 /* Debug */,
+				94A3CA5419D934A400A77780 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 94A3CA1519D934A300A77780 /* Project object */;
+}
