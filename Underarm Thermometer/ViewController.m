@@ -39,6 +39,8 @@
     self.tenSecData = ([self.tenSecTemp.text floatValue]-32)*5/9;
     self.isCelsius = true;
     
+    // TODO Set the URL to the correct IP
+    self.myURL = nil;
     
     [self updateScreen];
     
