@@ -24,10 +24,11 @@
     @property (assign) float instData;
 
     @property (strong, nonatomic) IBOutlet UILabel *unitLabel;
-
 @end
 
 @implementation ViewController
+    bool isAlarmOn = false;
+    bool didGetPackage = true;
 
 - (void)viewDidLoad
 {
@@ -40,13 +41,14 @@
     self.isCelsius = true;
     
     // TODO Set the URL to the correct IP
-    self.myURL = nil;
+    self.myURL = @"http://10.3.13.159";
     
     [self updateScreen];
     
     // Set Screen to Refresh according to the refresh rate
     [NSTimer scheduledTimerWithTimeInterval:refreshRate target:self selector:@selector(refreshScreen:) userInfo:nil repeats:YES];
     
+    [self serverRequest];
     // TODO: Make update timer for grabbing Wi-Fi information
     // TODO: Set up arduino to broadcast to a URL, then grab the JSON from that location by setting myURL to the URL
 }
@@ -79,29 +81,45 @@
 
 // Update the screen with new information
 -(void)updateScreen{
-    // Check to se if temperature is in Celcius or Fahrinheit, display accordingly
-    if(self.isCelsius){
-        self.instantaneousTemp.text = [NSString stringWithFormat:@"%.1f",self.instData];
-        self.oneSecTemp.text = [NSString stringWithFormat:@"%.1f",self.oneSecData];
-        self.tenSecTemp.text = [NSString stringWithFormat:@"%.1f",self.tenSecData];
+    [self serverRequest];
+    
+    if(didGetPackage){
+        // Check to se if temperature is in Celcius or Fahrinheit, display accordingly
+        if(self.isCelsius){
+            self.instantaneousTemp.text = [NSString stringWithFormat:@"%.1f",self.instData];
+            self.oneSecTemp.text = [NSString stringWithFormat:@"%.1f",self.oneSecData];
+            self.tenSecTemp.text = [NSString stringWithFormat:@"%.1f",self.tenSecData];
+        }else{
+            self.instantaneousTemp.text = [NSString stringWithFormat:@"%.1f", self.instData*9/5+32];
+            self.oneSecTemp.text = [NSString stringWithFormat:@"%.1f",self.oneSecData*9/5+32];
+            self.tenSecTemp.text = [NSString stringWithFormat:@"%.1f",self.tenSecData*9/5+32];
+            
+        }
     }else{
-        self.instantaneousTemp.text = [NSString stringWithFormat:@"%.1f", self.instData*9/5+32];
-        self.oneSecTemp.text = [NSString stringWithFormat:@"%.1f",self.oneSecData*9/5+32];
-        self.tenSecTemp.text = [NSString stringWithFormat:@"%.1f",self.tenSecData*9/5+32];
-
+        self.instantaneousTemp.text = @"--.-";
+        self.oneSecTemp.text = @"--.-";
+        self.tenSecTemp.text = @"--.-";
     }
-    NSLog(@"Screen Updated");
+    
+    if(!isAlarmOn){
+        [self checkHeat];
+    }
+    
+    //NSLog(@"Screen Updated");
 }
 
 
 // Make request to server
 -(void)serverRequest{
+    //NSLog(@"Server Request");
     NSURL *url = [NSURL URLWithString:self.myURL];
     if(!url){
         NSLog(@"OH NO! THERE'S NO URL!");
         return;
     }
+    
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),^{
+        
         NSMutableURLRequest *request = [NSMutableURLRequest requestWithURL:url];
         [request setCachePolicy:NSURLRequestReloadIgnoringLocalAndRemoteCacheData];
         [request setValue:@"application/json; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
@@ -110,23 +128,29 @@
         NSURLResponse *response;
         NSError *error;
         NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
-        
         if(!data){
             NSLog(@"AAAHHHH NO DATA!!!!");
+            didGetPackage = false;
+            return;
         }
-        
+        didGetPackage = true;
+        NSLog(@"%@", data);
         [self performSelectorOnMainThread:@selector(handleResponse:) withObject:data waitUntilDone:YES];
     });
 }
 
 // Handle server response
 -(void)handleResponse:(NSData *)response{
+    
+    NSLog(@"IM HERE");
     if(response){
         NSError *error;
         
         NSDictionary *jsonPackage = [NSJSONSerialization JSONObjectWithData:response options:kNilOptions error:&error];
-        NSArray *arduinoData = jsonPackage[@"arduino"];
+        NSArray *arduinoData = jsonPackage[@"packet"];
         
+        NSLog(@"%@", jsonPackage);
+        NSLog(@"WHATTTTT????");
         self.instData = [[arduinoData valueForKey:@"last_reading"] floatValue];
         self.oneSecData = [[arduinoData valueForKey:@"s_avg"] floatValue];
         self.tenSecData = [[arduinoData valueForKey:@"tens_avg"] floatValue];
@@ -136,42 +160,18 @@
     }
 }
 
-
-// Save Data as NSDictionary and write to Documents
--(void)saveData{
-    NSURL *documentsPath = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *documentsURL = [documentsPath URLByAppendingPathComponent:@"userSettings.plist"];
-    
-    NSNumber *instSave = @(self.instData);
-    NSNumber *oneSecSave = @(self.oneSecData);
-    NSNumber *tenSecSave = @(self.tenSecData);
-    
-    NSDictionary *package = @{@"last_reading":instSave,
-                              @"s_avg": oneSecSave,
-                              @"tens_avg":tenSecSave};
-    
-    [package writeToURL:documentsURL atomically:YES];
-    
-}
-
-// Load From Documents and update values.  If no data from Documents, load defaults
--(BOOL)loadData{
-    NSURL *documentsPath = [[[NSFileManager defaultManager] URLsForDirectory:NSDocumentDirectory inDomains:NSUserDomainMask] lastObject];
-    NSURL *documentsURL = [documentsPath URLByAppendingPathComponent:@"userSettings.plist"];
-    
-    NSDictionary *readValues = [NSDictionary dictionaryWithContentsOfURL:documentsURL];
-    if(readValues){
-        self.instData = [[readValues valueForKey:@"last_reading"] floatValue];
-        self.oneSecData = [[readValues valueForKey:@"s_avg"] floatValue];
-        self.tenSecData = [[readValues valueForKey:@"tens_avg"] floatValue];
-        return true;
+-(void)checkHeat{
+    if(self.tenSecData>=32.2f || self.oneSecData>=32.2f || self.instData>=32.2){
+        isAlarmOn = true;
+        
+        UIAlertView *theAlert = [[UIAlertView alloc] initWithTitle:@"Thermometer in Use"
+            message:@"Your Device is Working"
+            delegate:self
+            cancelButtonTitle:@"Thank You"
+            otherButtonTitles:nil];
+        
+        [theAlert show];
     }
-    
-    self.instData = 90;
-    self.oneSecData = 90;
-    self.tenSecData = 90;
-    
-    return false;
 }
 
 @end
