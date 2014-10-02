@@ -15,7 +15,7 @@
 
 #import "ViewController.h"
 
-#define refreshRate 1.0f
+#define refreshRate 3.0f
 #define slope 0.0582f
 #define offset -2.251f
 
