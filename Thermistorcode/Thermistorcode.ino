@@ -75,18 +75,8 @@ void loop() {
   
   WiFiClient client = server.available();
   if (client) {
-    //while (client.available()) Serial.write(client.read());
-     //while (client.read() != -1);
-     /*String data = "HTTP/1.1 200 OK\nContent-Type: application/json\nConnection: close\n\n";
-     data += "{\"packet\":{\"last_reading\":";
-     data += String(ms_readings[ms_index]);
-     char buf[20];
-     data += ",\"s_avg\":" + String(dtostrf(s_avgs[s_index], 4, 2, buf));
-     data += ",\"tens_avg\":" + String(dtostrf(tens_avg, 4, 2, buf));
-     data += ",\"packet\":" + String(packet_cnt++);
-     data += "}}\r\n";
-     //Serial.println(data);
-     client.println(data);*/
+    if (client.connected()) {
+      client.flush();
       client.println("HTTP/1.1 200 OK");
       client.println("Content-Type: application/json");
       client.println("Connection: close");
@@ -100,8 +90,9 @@ void loop() {
       client.print(",\"packet\":");
       client.print(packet_cnt++);
       client.println("}}");
-      //delay(10);
-      client.stop();
+      client.flush();
+    }
+    client.stop();
   }
   
   ms_index++;
