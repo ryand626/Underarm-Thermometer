@@ -3,7 +3,6 @@
 
 const int analogPin = 0;
 const unsigned long MAX_UNSIGNED_UL = 0xFFFFFFFF;
-const unsigned PACKET_INTERVAL = 50000;
 
 unsigned long start_time, last_time, last_send_time;
 unsigned ms_index, s_index, packet_cnt;
@@ -20,12 +19,10 @@ char ssid[] = "EECS";
 WiFiServer server(80);
 IPAddress ip(10, 3, 13, 158);
 
-boolean client_has_xctd;
-
 void setup() {
   Serial.begin(9600);
-   pinMode(A0, INPUT);
-   analogReference(EXTERNAL);   //use 0.45 V AREF
+  pinMode(A0, INPUT);
+  analogReference(EXTERNAL);   //use 0.45 V AREF
   
   WiFi.config(ip);
   while (_status != WL_CONNECTED) {
@@ -45,7 +42,6 @@ void setup() {
   last_time = start_time = micros();
   last_send_time = 0;
   full_ms_buf = full_s_buf = false;
-  client_has_xctd = false;
 }
 
 void loop() {
