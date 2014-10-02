@@ -7,8 +7,19 @@
 //
 
 #import <UIKit/UIKit.h>
+#import <AudioToolbox/AudioToolbox.h>
+#import <AVFoundation/AVFoundation.h>
 
-@interface ViewController : UIViewController
+@interface ViewController : UIViewController<UIAlertViewDelegate>{
+    bool isAlarmOn;
+    bool didGetPackage;
+    bool isConnected;
+    int alarmTimer;
+
+    AVAudioPlayer* audioPlayer;
+    AVAudioPlayer* effectPlayer;
+    AVAudioPlayer* alarmPlayer;
+}
 
 @property (strong, nonatomic) NSString* myURL;
 @property (assign, nonatomic) BOOL isCelsius;
