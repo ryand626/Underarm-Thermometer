@@ -3,7 +3,6 @@
 
 const int analogPin = 0;
 const unsigned long MAX_UNSIGNED_UL = 0xFFFFFFFF;
-const unsigned PACKET_INTERVAL = 50000;
 
 unsigned long start_time, last_time, last_send_time;
 unsigned ms_index, s_index, packet_cnt;
@@ -20,12 +19,10 @@ char ssid[] = "EECS";
 WiFiServer server(80);
 IPAddress ip(10, 3, 13, 158);
 
-boolean client_has_xctd;
-
 void setup() {
   Serial.begin(9600);
-   pinMode(A0, INPUT);
-   analogReference(EXTERNAL);   //use 0.45 V AREF
+  pinMode(A0, INPUT);
+  analogReference(EXTERNAL);   //use 0.45 V AREF
   
   WiFi.config(ip);
   while (_status != WL_CONNECTED) {
@@ -45,7 +42,6 @@ void setup() {
   last_time = start_time = micros();
   last_send_time = 0;
   full_ms_buf = full_s_buf = false;
-  client_has_xctd = false;
 }
 
 void loop() {
@@ -75,18 +71,8 @@ void loop() {
   
   WiFiClient client = server.available();
   if (client) {
-    //while (client.available()) Serial.write(client.read());
-     //while (client.read() != -1);
-     /*String data = "HTTP/1.1 200 OK\nContent-Type: application/json\nConnection: close\n\n";
-     data += "{\"packet\":{\"last_reading\":";
-     data += String(ms_readings[ms_index]);
-     char buf[20];
-     data += ",\"s_avg\":" + String(dtostrf(s_avgs[s_index], 4, 2, buf));
-     data += ",\"tens_avg\":" + String(dtostrf(tens_avg, 4, 2, buf));
-     data += ",\"packet\":" + String(packet_cnt++);
-     data += "}}\r\n";
-     //Serial.println(data);
-     client.println(data);*/
+    if (client.connected()) {
+      client.flush();
       client.println("HTTP/1.1 200 OK");
       client.println("Content-Type: application/json");
       client.println("Connection: close");
@@ -100,8 +86,9 @@ void loop() {
       client.print(",\"packet\":");
       client.print(packet_cnt++);
       client.println("}}");
-      //delay(10);
-      client.stop();
+      client.flush();
+    }
+    client.stop();
   }
   
   ms_index++;
