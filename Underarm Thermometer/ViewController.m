@@ -195,12 +195,13 @@
 
 -(void)loadSoundFiles{
     // Set up file path to audio file
-    NSString* path = [[NSBundle mainBundle] pathForResource:@"sms-received2" ofType:@"mp3"];
+    NSString* path = [[NSBundle mainBundle] pathForResource:@"alarm" ofType:@"mp3"];
     NSURL* file = [NSURL fileURLWithPath:path];
     
     // Set up audio player
     alarmPlayer = [[AVAudioPlayer alloc] initWithContentsOfURL:file error:nil];
     [alarmPlayer prepareToPlay];
+    alarmPlayer.numberOfLoops = -1;
     
     path = [[NSBundle mainBundle] pathForResource:@"Tink" ofType:@"mp3"];
     file = [NSURL fileURLWithPath:path];
@@ -215,7 +216,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(alertView.tag == 1){
         if(buttonIndex == 0){
-           // isAlarmOn = false;
+            [alarmPlayer pause];
         }
     }
 }

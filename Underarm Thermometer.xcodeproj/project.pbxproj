@@ -22,11 +22,15 @@
 		94A3CA4A19D934A400A77780 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 94A3CA4819D934A400A77780 /* InfoPlist.strings */; };
 		94A3CA4C19D934A400A77780 /* Underarm_ThermometerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 94A3CA4B19D934A400A77780 /* Underarm_ThermometerTests.m */; };
 		94D3DAA619DCC51A001DCE94 /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94D3DAA519DCC51A001DCE94 /* AudioToolbox.framework */; };
-		94D3DAA819DCCE8B001DCE94 /* Tink.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94D3DAA719DCCE8B001DCE94 /* Tink.mp3 */; };
+		94E46A2B19E35F7000DD29D4 /* sms-received2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94E46A2A19E35F7000DD29D4 /* sms-received2.mp3 */; };
+		94E46A2C19E35F7000DD29D4 /* sms-received2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94E46A2A19E35F7000DD29D4 /* sms-received2.mp3 */; };
+		94E46A2E19E35F9600DD29D4 /* Tink.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94E46A2D19E35F9600DD29D4 /* Tink.mp3 */; };
+		94E46A2F19E35F9600DD29D4 /* Tink.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94E46A2D19E35F9600DD29D4 /* Tink.mp3 */; };
+		94E46A3119E3628800DD29D4 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94E46A3019E3628800DD29D4 /* alarm.mp3 */; };
+		94E46A3219E3628800DD29D4 /* alarm.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94E46A3019E3628800DD29D4 /* alarm.mp3 */; };
 		94F5B99F19DCD78D0070E544 /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 94F5B99E19DCD78D0070E544 /* AVFoundation.framework */; };
 		94F5B9A219DCFD0E0070E544 /* background.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F5B9A019DCFD0E0070E544 /* background.png */; };
 		94F5B9A319DCFD0E0070E544 /* thermometer.png in Resources */ = {isa = PBXBuildFile; fileRef = 94F5B9A119DCFD0E0070E544 /* thermometer.png */; };
-		94F5B9A519DCFFA80070E544 /* sms-received2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 94F5B9A419DCFFA80070E544 /* sms-received2.mp3 */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -60,11 +64,12 @@
 		94A3CA4919D934A400A77780 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		94A3CA4B19D934A400A77780 /* Underarm_ThermometerTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Underarm_ThermometerTests.m; sourceTree = "<group>"; };
 		94D3DAA519DCC51A001DCE94 /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
-		94D3DAA719DCCE8B001DCE94 /* Tink.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = Tink.mp3; path = ../../../../../../Downloads/IOS_System_Sounds/Tink.mp3; sourceTree = "<group>"; };
+		94E46A2A19E35F7000DD29D4 /* sms-received2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "sms-received2.mp3"; sourceTree = "<group>"; };
+		94E46A2D19E35F9600DD29D4 /* Tink.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = Tink.mp3; sourceTree = "<group>"; };
+		94E46A3019E3628800DD29D4 /* alarm.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarm.mp3; sourceTree = "<group>"; };
 		94F5B99E19DCD78D0070E544 /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		94F5B9A019DCFD0E0070E544 /* background.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = background.png; sourceTree = "<group>"; };
 		94F5B9A119DCFD0E0070E544 /* thermometer.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = thermometer.png; sourceTree = "<group>"; };
-		94F5B9A419DCFFA80070E544 /* sms-received2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; name = "sms-received2.mp3"; path = "../../../../../../Downloads/IOS_System_Sounds/sms-received2.mp3"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -172,10 +177,11 @@
 		94D3DAA919DCCF36001DCE94 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				94E46A3019E3628800DD29D4 /* alarm.mp3 */,
+				94E46A2A19E35F7000DD29D4 /* sms-received2.mp3 */,
 				94F5B9A019DCFD0E0070E544 /* background.png */,
-				94F5B9A419DCFFA80070E544 /* sms-received2.mp3 */,
 				94F5B9A119DCFD0E0070E544 /* thermometer.png */,
-				94D3DAA719DCCE8B001DCE94 /* Tink.mp3 */,
+				94E46A2D19E35F9600DD29D4 /* Tink.mp3 */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -256,13 +262,14 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				94D3DAA819DCCE8B001DCE94 /* Tink.mp3 in Resources */,
+				94E46A2E19E35F9600DD29D4 /* Tink.mp3 in Resources */,
+				94E46A2B19E35F7000DD29D4 /* sms-received2.mp3 in Resources */,
 				94F5B9A219DCFD0E0070E544 /* background.png in Resources */,
 				94F5B9A319DCFD0E0070E544 /* thermometer.png in Resources */,
+				94E46A3119E3628800DD29D4 /* alarm.mp3 in Resources */,
 				94A3CA3919D934A300A77780 /* Images.xcassets in Resources */,
 				94A3CA2B19D934A300A77780 /* InfoPlist.strings in Resources */,
 				94A3CA3419D934A300A77780 /* Main.storyboard in Resources */,
-				94F5B9A519DCFFA80070E544 /* sms-received2.mp3 in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -270,6 +277,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				94E46A3219E3628800DD29D4 /* alarm.mp3 in Resources */,
+				94E46A2F19E35F9600DD29D4 /* Tink.mp3 in Resources */,
+				94E46A2C19E35F7000DD29D4 /* sms-received2.mp3 in Resources */,
 				94A3CA4A19D934A400A77780 /* InfoPlist.strings in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
