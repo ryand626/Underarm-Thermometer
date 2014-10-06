@@ -15,9 +15,9 @@
 
 #import "ViewController.h"
 
-#define refreshRate 3.0f
-#define slope 0.0582f
-#define offset -2.251f
+#define refreshRate 1.25f
+#define slope 0.0614f
+#define offset -5.6311f
 
 @interface ViewController ()
     // Temperature Labels
@@ -46,7 +46,7 @@
 {
     [super viewDidLoad];
     
-    isAlarmOn = false;
+    isAlarmOn = true;
     didGetPackage = false;
     isConnected = false;
     
@@ -59,6 +59,7 @@
     
     // Load the Audio Files
     [self loadSoundFiles];
+    [self updateScreen];
     
     // Set Screen to Refresh according to the refresh rate
     [NSTimer scheduledTimerWithTimeInterval:refreshRate target:self selector:@selector(refreshScreen:) userInfo:nil repeats:YES];
@@ -112,9 +113,9 @@
             }
         }
     }
-    if(!isAlarmOn && alarmTimer > 10){
-        [self checkHeat];
-    }
+    
+    [self checkHeat];
+    
     alarmTimer +=1;
 }
 
@@ -174,19 +175,21 @@
 }
 
 -(void)checkHeat{
-    if(self.tenSecData >= 32.2f || self.oneSecData >= 32.2f || self.instData >= 32.2){
+    if(self.instData >= 32.2){
+        if(isAlarmOn){
+            UIAlertView *tempAlert = [[UIAlertView alloc] initWithTitle:@"High Temperatrue"
+                                                                message:@"Your Temperature is above 90"
+                                                               delegate:self
+                                                      cancelButtonTitle:@"Thank You"
+                                                      otherButtonTitles:nil];
+            [tempAlert setTag:1];
+            alarmTimer = 0;
+            [tempAlert show];
+            [self playAlarm];
+        }
+        isAlarmOn = false;
+    }else{
         isAlarmOn = true;
-        
-        UIAlertView *tempAlert = [[UIAlertView alloc] initWithTitle:@"High Temperatrue"
-            message:@"Your Temperature is above 90"
-            delegate:self
-            cancelButtonTitle:@"Thank You"
-            otherButtonTitles:nil];
-        [tempAlert setTag:1];
-        alarmTimer = 0;
-        [tempAlert show];
-        
-        [self playAlarm];
     }
 }
 
@@ -212,7 +215,7 @@
 -(void)alertView:(UIAlertView *)alertView clickedButtonAtIndex:(NSInteger)buttonIndex{
     if(alertView.tag == 1){
         if(buttonIndex == 0){
-            isAlarmOn = false;
+           // isAlarmOn = false;
         }
     }
 }
