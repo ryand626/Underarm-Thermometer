@@ -24,6 +24,9 @@ unsigned long start_time, last_time, last_send_time;
 unsigned ms_index, s_index, packet_cnt;
 unsigned last_reading;
 
+unsigned ekg_ms_readings[1000];
+unsigned pulse_ms_readings[1000];
+unsigned ms_readings[1000];
 double s_avgs[10];
 double last_s_avg;
 double tens_avg;
@@ -70,6 +73,11 @@ void setup() {
   int i;
   for (i=0; i<90; i++)
     buffer[i] = 0;
+  for (i=0; i<1000; i++) {
+    ekg_ms_readings[i] = 0;
+    pulse_ms_readings[i] = 0;
+    ms_readings[i] = 0;
+  }
   for (i=0; i<10; i++)
     s_avgs[i] = 0.0;
 }
@@ -89,6 +97,8 @@ void loop() {
 
   last_time = time;
   last_reading = analogRead(THERM_PIN);
+  ekg_ms_readings[ms_index] = analogRead(ECG_PIN);
+  //pulse_ms_readings[ms_index] = analogRead(PULSE_PIN);
 
   double old_reading = ms_readings[ms_index];
   ms_readings[ms_index] = last_reading;
@@ -117,10 +127,35 @@ void loop() {
       
       client.write(buffer, num);
       debug((char*)buffer);
-      num = sprintf((char*)buffer, "{\"last_reading\":%u,\"s_avg\":%u,\"tens_avg\":%u}\r\n",
+      num = sprintf((char*)buffer, "{\"l\":%u,\"s\":%u,\"t\":%u,\"e\":\"",
       ms_readings[ms_index], (unsigned) s_avgs[s_index], (unsigned) tens_avg);
       client.write(buffer, num);
       debug((char*)buffer);
+      
+      if (full_ms_buf) {
+        unsigned i;
+        num = 0;
+        for (i = 0; i < 1000; i += 4) {
+          num += sprintf((char*) buffer + num, "%u,", ekg_ms_readings[(ms_index+i)%1000]);
+          if (num >= 85) {
+            client.write(buffer, num);
+            debug((char*)buffer);
+            num = 0;
+          }
+        }
+        //buffer[num-1] = ' ';
+        client.write(buffer, num-1); // Don't print the last comma
+        debug((char*)buffer);
+        num = sprintf((char*)buffer, "\"}\r\n\r\n");
+        client.write(buffer, num);
+        debug((char*)buffer);
+      } 
+      else {
+        num = sprintf((char*)buffer, "0\"}\r\n\r\n");
+        client.write(buffer, num);
+        debug((char*)buffer);
+      }
+
     }
     client.stop();
   }
